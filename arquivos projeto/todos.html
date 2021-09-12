@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <header><h2>Todos:</h2></header>
+    <button class="botao"><a href="menuPrincipal.html">Menu Principal</a></button>
+    <table id="tabela"></table>
+    <script>/*código principal com os dados */
+
+        function fazGet(url){
+        let request= new XMLHttpRequest()
+        request.open("GET",url,false)
+        request.send()// pode se mandar algum body para o servidor através do parenteses
+        return request.responseText
+        }
+        function criarLinha(usuario){
+            console.log(usuario)
+            linha= document.createElement('tr');
+            tdId= document.createElement('td')
+            tdNome= document.createElement('td')
+            tdTitle= document.createElement('td')
+            tdCompleted= document.createElement('td')
+            tdId.innerHTML= usuario.id
+            tdNome.innerHTML= usuario.userId
+            tdTitle.innerHTML= usuario.title
+            tdCompleted.innerHTML= usuario.completed 
+        
+            linha.appendChild(tdId);
+            linha.appendChild(tdNome);
+            linha.appendChild(tdTitle);
+            linha.appendChild(tdCompleted);
+        
+            return linha;
+        
+        
+        }
+        
+        function main(){
+            todos=fazGet('https://jsonplaceholder.typicode.com/todos')//todos
+            let usuarios= JSON.parse(todos);
+            let tabela= document.getElementById('tabela')
+        
+            usuarios.forEach(element => {
+                let linha=criarLinha(element);
+                tabela.appendChild(linha);
+                
+            });
+            //para cada usuario 
+            // criar uma linha
+            //adicionar na tabela
+        
+        
+        }
+        main();
+        </script>
+</body>
+</html>

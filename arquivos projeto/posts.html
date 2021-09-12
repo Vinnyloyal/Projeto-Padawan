@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>posts</title>
+    <link rel="stylesheet" href="style.css">
+       
+</head>
+<body>
+    <header><h2>Postagens:</h2></header>
+    <button><a href="menuPrincipal.html">Menu Principal</a></button>
+    <table id="tabela"></table>
+    <script>
+        /*código principal com os dados */
+
+function fazGet(url){
+    let request= new XMLHttpRequest()
+    request.open("GET",url,false)
+    request.send()// pode se mandar algum body para o servidor através do parenteses
+    return request.responseText
+    }
+    function criarLinha(usuario){
+        console.log(usuario)
+        linha= document.createElement('tr');
+        tdId= document.createElement('td')
+        tdNome= document.createElement('td')
+        tdBody= document.createElement('td')
+        tdTitle= document.createElement('td')
+        tdId.innerHTML= usuario.id
+        tdNome.innerHTML= usuario.userId
+        tdBody.innerHTML= usuario.body
+        tdTitle.innerHTML= usuario.title
+    
+        linha.appendChild(tdId);
+        linha.appendChild(tdNome);
+        linha.appendChild(tdBody);
+        linha.appendChild(tdTitle);
+
+    
+        return linha;
+    
+    
+    }
+    
+    function main(){
+        posts=fazGet('https://jsonplaceholder.typicode.com/posts')//postagens
+        let usuarios= JSON.parse(posts);
+        let tabela= document.getElementById('tabela')
+    
+        usuarios.forEach(element => {
+            let linha=criarLinha(element);
+            tabela.appendChild(linha);
+            
+        });
+        //para cada usuario 
+        // criar uma linha
+        //adicionar na tabela
+    
+    
+    }
+    main();
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+/*Documento css para configurar as tabelas*/
+
+   /*configuração geral*/
+  td,tr,table{
+            border:1px solid black;
+            font-family: 'Times New Roman', Times, serif;
+            
+        }
+   .botao,a{
+       text-decoration: none;
+   }    
+   td{
+       background-color: rgb(182, 174, 174);
+   } 
+   tr{
+       background-color: white;
+   }
+
+ /*Menu de Navegação principal
+*/
+#menu,li,a{
+    text-decoration: none;
+    display:block;
+
+}
+#menu{
+
+    
+}
+#lista1{  padding:2px; margin: 2px; text-align: center;}
+#lista2{ padding:2px; margin: 2px; text-align: center;}
+#lista3{ padding:2px; margin: 2px; text-align: center;}
+.lista{  
+    font-size: x-large;
+    padding:2px; margin: 2px;
+    height: 100px;
+    width: 200px;
+    background-color: rgba(240, 255, 251, 0.712)
+    
+}
+.lista :hover{
+    color: aquamarine;
+}
+ 
+
+/* configuração do cabeçalho*/
+#cabecalho{
+    text-align: center;
+    background-color: aqua;
+
+}
+/*configurando o footer*/
+footer{
+    text-align: center;
+    background-color: aquamarine;
+    height: 200px;
+}
+/* configurando article*/
+article{
+    text-align:center;
+
+}
